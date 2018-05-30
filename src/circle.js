@@ -14,7 +14,6 @@ function Circle( posX, posY, radius ,RGBRed ,RGBGreen , RGBBlue ){
 	}
 	//Movements
 	this.goRight = function(){
-		//this.innertia += ( 5 * Math.pow(2,-10000)) ;
 		this.posX += 10  ;
 	}
 	this.goLeft = function(){
@@ -27,4 +26,12 @@ function Circle( posX, posY, radius ,RGBRed ,RGBGreen , RGBBlue ){
 		this.posY -= 10
 	}
 
+}
+
+function segment(x, y, a) {
+  push();
+  translate(x, y);
+  rotate(a);
+  line(0, 0, segLength, 0);
+  pop();
 }
