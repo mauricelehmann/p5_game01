@@ -2,6 +2,8 @@
 var x = 10 , y = 10 ;
 var radius = 50 ;
 
+//test
+
 var mainCircle = new Circle(10,10,50,0,255,0) ;
 var dotArray = [] ;
 
