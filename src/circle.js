@@ -30,8 +30,10 @@ function Circle( posX, posY, radius ,RGBRed ,RGBGreen , RGBBlue ){
 		this.radius = 50 ;
 	}
 
+	this.shoot = function() {
+		
+	}
 }
-
 
 
 //Global vars for tails , BETA
