@@ -1,4 +1,6 @@
 
+
+//Check the collision between dots and circle ( players )
 function isCollision( x0 , y0 , radius0 , x1 , y1 , radius1 ){
 
 	var deltaX = Math.abs( x0 - x1 ) ,
@@ -13,64 +15,16 @@ function isCollision( x0 , y0 , radius0 , x1 , y1 , radius1 ){
 	}
 }
 
-function movementListener(){
-
-	//Key mapping & movement
-	if (keyIsDown(LEFT_ARROW)) {
- 	  mainCircle.goLeft() ;
- 	}
- 	if (keyIsDown(RIGHT_ARROW)){
- 	  mainCircle.goRight() ;
- 	}
- 	if (keyIsDown(UP_ARROW)) {
- 	  mainCircle.goUp() ;
- 	}
- 	if (keyIsDown(DOWN_ARROW)) {
- 	  mainCircle.goDown() ;
- 	}
-}
-function actionListener(){
-
-	if(keyIsDown(32)){
- 		mainCircle.radius += 3 ;
- 	}
- 	if(keyIsDown(82)){
- 		mainCircle.radius = 50 ;
- 	}
-}
-function collisionListener(){
-
-	for (var dot = 0; dot < dotArray.length; dot++) {
-
-		//check if is there a collision between mainCircle and any dots
-		if(isCollision(
-				mainCircle.posX,
-				mainCircle.posY,
-				mainCircle.radius,
-				dotArray[dot].x,
-				dotArray[dot].y,
-				dotArray[dot].r)){
-
-			//Event when main ball hit a dot
-			mainCircle.radius += 5 ;
-			//Remove the dot
-			dotArray.splice(dot,1) ;
-		}
-	}
-}
-
-
+//Fill the dotArray[] wich contains all circle objects called "dots"
 function fillDotArray(){
 
-	for (var dot = 0; dot < 20; dot++) {
-
+	for (var dot = 0; dot < 1; dot++) {
 		var randX = random(windowWidth) ;
 		var randY = random(windowHeight) ;
 		var randR = random(5 , 15 ) ;
 		var RGBRed  	= random(0,255),
-			RGBGreen 	= random(0,255),
+				RGBGreen 	= random(0,255),
 		    RGBBlue 	= random(0,255) ;
-
 		var dotObject = new Circle(randX,randY,randR,RGBRed,RGBGreen,RGBBlue) ;
 		dotArray.push({ x : dotObject.posX ,
 						y : dotObject.posY ,
@@ -92,14 +46,9 @@ function printDotArray(){
 
 }
 
-function endGameListener(){
-
-	if( dotArray.length == 0 ){
-		fillDotArray() ;
-		mainCircle.radius = 50 ;
-	}
-}
-
-function keyPressed(){
-
+function showScore(){
+	fill(0, 102, 153);
+	textSize(20) ;
+	text('Player 1 score : ' + mainCircle.radius, 20 , 20) ;
+	text('Player 2 score : ' + secondCircle.radius, 20 , 40) ;
 }

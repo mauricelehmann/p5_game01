@@ -25,9 +25,41 @@ function Circle( posX, posY, radius ,RGBRed ,RGBGreen , RGBBlue ){
 	this.goUp = function(){
 		this.posY -= 10
 	}
+	//Reset radius
+	this.resetRadius = function() {
+		this.radius = 50 ;
+	}
 
 }
 
+
+
+//Global vars for tails , BETA
+// var x = 100,
+//   	y = 100,
+//   	angle1 = 0.0,
+//   	segLength = 50;
+
+
+//TODO LATER
+function setTail(){
+	strokeWeight(20.0);
+	stroke(255, 100);
+}
+
+//TODO LATER
+function drawTail( x, y , angle1 , segLength ){
+	//Animation circle
+	dx = mainCircle.posX - x;
+	dy = mainCircle.posY - y;
+	angle1 = atan2(dy, dx);
+	x = mainCircle.posX - (cos(angle1) * segLength);
+	y = mainCircle.posY - (sin(angle1) * segLength);
+	segment(x, y, angle1);
+	ellipse(x, y, 20, 20);
+
+}
+//TODO LATER
 function segment(x, y, a) {
   push();
   translate(x, y);
