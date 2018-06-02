@@ -26,22 +26,17 @@ function fillDotArray(){
 				RGBGreen 	= random(0,255),
 		    RGBBlue 	= random(0,255) ;
 		var dotObject = new Circle(randX,randY,randR,RGBRed,RGBGreen,RGBBlue) ;
-		dotArray.push({ x : dotObject.posX ,
-						y : dotObject.posY ,
-						r : dotObject.radius ,
-						RGBRed : dotObject.RGBRed ,
-						RGBreen : dotObject.RGBGreen ,
-						RGBBlue : dotObject.RGBBlue }) ;
+		dotArray.push(dotObject) ;
 	};
 }
 
-function printDotArray(){
+function printDotArray( objectArray ){
 
-	for (var dot = 0; dot < dotArray.length; dot++) {
+	for (var dot = 0; dot < objectArray.length; dot++) {
 		//Set the dot color
-		fill(dotArray[dot].RGBRed , dotArray[dot].RGBreen ,dotArray[dot].RGBBlue );
+		fill(objectArray[dot].RGBRed , objectArray[dot].RGBreen ,objectArray[dot].RGBBlue );
 		//Creating ellipse from Circle class properties
-		ellipse(dotArray[dot].x, dotArray[dot].y, dotArray[dot].r, dotArray[dot].r);
+		ellipse(objectArray[dot].posX, objectArray[dot].posY, objectArray[dot].radius, objectArray[dot].radius);
 	};
 
 }
@@ -51,4 +46,11 @@ function showScore(){
 	textSize(20) ;
 	text('Player 1 score : ' + mainCircle.radius, 20 , 20) ;
 	text('Player 2 score : ' + secondCircle.radius, 20 , 40) ;
+}
+
+function showInput(){
+	fill(0, 102, 153);
+	textSize(20) ;
+	text('Player 1 controles : Left arrow , right arrow , down arrow , up arrow , L to shoot', 200 , 20) ;
+	text('Player 2 controles : A , S , D , S , W , G to shoot', 200 , 40) ;
 }
