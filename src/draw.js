@@ -13,7 +13,7 @@ function setup() {
 	var canevas = createCanvas(windowWidth - 20 ,windowHeight -20 );
 	//Dots setup
 	fillDotArray()
-
+	//test push
 }
 
 //Draw , run constantly
